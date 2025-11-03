@@ -4,13 +4,13 @@ WORKDIR /app
 
 # Copy requirements and install
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
 COPY src/ ./src/
 
-# Create data directories
-RUN mkdir -p data/raw data/processed
+# Create data directory
+RUN mkdir -p data/raw
 
 # Run data collection
 CMD ["python", "src/fetch_data.py"]

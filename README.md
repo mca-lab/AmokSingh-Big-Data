@@ -127,26 +127,21 @@ pick **2 or more datasets**, define a **research question or hypothesis** and im
    git merge upstream/main
    ```
 
-# Big Data Project: GDP vs Life Expectancy Analysis
+# Big Data Project: Climate & Agriculture Correlation Analysis
 
 ## Project Overview
+A big data pipeline analyzing the relationship between climate factors and agricultural productivity across countries using Python and Docker.
 
-This project builds a **Big Data pipeline** to analyze the relationship between **GDP per capita** and **life expectancy** across countries using **Python** and **Docker**.
+**Research Question:** "How do climate factors (temperature, precipitation) correlate with agricultural productivity and food security indicators across different countries?"
 
-### Research Question
 
-> **How does GDP per capita relate to life expectancy across different countries over time?**
-
-## Completed: Module 1 - Data Collection & Ingestion
+## Module 1: Data Collection & Ingestion - COMPLETED
 
 ### What We Accomplished
-
-**Built a Docker container** for reproducible data collection
-**Fetched real-time datasets** from the **World Bank API**
-**Collected two datasets:**
-**GDP per capita** — 914 records
-**Life expectancy** — 984 records
-**Stored data in multiple formats:**
-**Parquet** → Efficient columnar storage for big data
-**CSV** → Easy inspection and verification
-**Resolved Docker volume mounting issues** for Windows environment
+- Built Docker container for reproducible data collection
+- Created realistic sample datasets for climate and agriculture analysis
+- Generated two comprehensive datasets:
+  - **Climate Data**: 1,035 records
+  - **Agriculture Data**: 345 records
+- Data covers 15 countries from 2000-2022
+- Solved Docker and dependency compatibility issues
