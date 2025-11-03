@@ -9,8 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy source code
 COPY src/ ./src/
 
-# Create data directory
-RUN mkdir -p data/raw
+# Create data directories
+RUN mkdir -p data/raw data/processed
 
-# Run data collection
-CMD ["python", "src/fetch_data.py"]
+# Run data collection AND then cleaning
+CMD ["sh", "-c", "python src/fetch_data.py && python src/clean_data.py"]

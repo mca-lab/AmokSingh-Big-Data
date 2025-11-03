@@ -1,19 +1,49 @@
-# Big Data Project: Climate & Agriculture Correlation Analysis
+# Climate & Agriculture Data Pipeline Project
 
 ## Project Overview
 
-A big data pipeline analyzing the relationship between climate factors and agricultural productivity across countries using Python and Docker.
+This Big Data project implements a complete **data pipeline** for **climate and agriculture data analysis**.  
+It demonstrates **automated data collection, cleaning, and integration** using Python and Docker — preparing datasets for future analytical and visualization tasks.
 
-**Research Question:** "How do climate factors (temperature, precipitation) correlate with agricultural productivity and food security indicators across different countries?"
+**Research Question:**  
+How do climate factors (temperature, precipitation, CO₂ emissions) correlate with agricultural productivity metrics?
 
-## Module 1: Data Collection & Ingestion - COMPLETED
+## Project Workflow
 
-### What We Accomplished
+### **Module 1: Data Collection & Ingestion** _Completed_
 
-- Built Docker container for reproducible data collection
-- Created realistic sample datasets for climate and agriculture analysis
-- Generated two comprehensive datasets:
-  - **Climate Data**: 1,035 records
-  - **Agriculture Data**: 345 records
-- Data covers 15 countries from 2000-2022
-- Solved Docker and dependency compatibility issues
+**Objective:** Automate dataset creation and storage.  
+**Technology:** Python, Docker
+
+**Output:** Synthetic datasets (2000–2022)
+
+**Datasets Created:**
+**Climate Data:** 1,035 records (temperature, precipitation, CO₂ emissions)  
+**Agriculture Data:** 345 records (crop production, cereal yield, food security metrics)
+
+**Countries Covered (15):**  
+USA, India, China, Brazil, Germany, France, Japan, Australia, Canada, Mexico, UK, Italy, Spain, Russia, South Africa
+
+**Time Period:** 2000–2022 (23 years)
+
+### **Module 2: Data Cleaning & Integration** _Completed_
+
+**Objective:** Prepare raw data for analysis.  
+**Technology:** Pandas, Docker
+
+**Output:** Cleaned and integrated dataset ready for analysis.
+
+**Cleaning Steps:**
+
+- Removed duplicates and null values
+- Transformed climate data from long → wide format
+- Integrated climate and agriculture datasets
+
+**Final Dataset:** `345 records × 9 columns`
+
+## Technologies Used
+
+- **Python 3.9**
+- **Pandas** — Data manipulation and analysis
+- **Docker** — Containerization and reproducibility
+- **PyArrow** — Parquet file support
