@@ -17,15 +17,6 @@ The work completed so far covers **Module 1 (Data Ingestion)** and **Module 2 (D
 - Saved all raw datasets in **CSV and Parquet** formats.
 - Automated the entire ingestion step inside **Docker** to ensure reproducibility.
 
-### Output (Module 1)
-
-data/raw/
-│── climate_data.csv
-│── climate_data.parquet
-│── agriculture_data.csv
-│── agriculture_data.parquet
-└── dataset_info.json
-
 ## Module 2 — Data Cleaning & Integration (PySpark)
 
 ### What was done
@@ -40,9 +31,3 @@ data/raw/
 - Filled missing values using **median per country**.
 - Flagged outliers using **IQR (Interquartile Range)**.
 - Saved the processed dataset into **data/processed/**.
-
-### Output (Module 2)
-
-data/processed/
-│── merged_climate_agriculture.csv
-└── merged_climate_agriculture.parquet
