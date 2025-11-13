@@ -1,49 +1,48 @@
-# Climate & Agriculture Data Pipeline Project
+# Big Data Project — Climate & Agriculture Data Pipeline
 
-## Project Overview
+## Overview
 
-This Big Data project implements a complete **data pipeline** for **climate and agriculture data analysis**.  
-It demonstrates **automated data collection, cleaning, and integration** using Python and Docker — preparing datasets for future analytical and visualization tasks.
+This project implements a Big Data pipeline that collects, cleans, and prepares environmental and agricultural datasets for further analysis.  
+The work completed so far covers **Module 1 (Data Ingestion)** and **Module 2 (Data Cleaning & Integration)** from the Big Data project template.
 
-**Research Question:**  
-How do climate factors (temperature, precipitation, CO₂ emissions) correlate with agricultural productivity metrics?
+## Module 1 — Data Collection & Ingestion
 
-## Project Workflow
+### What was done
 
-### **Module 1: Data Collection & Ingestion** _Completed_
+- Fetched **real climate data** from the **World Bank API**, including:
+  - Precipitation
+  - CO₂ Emissions
+  - Methane Emissions
+- Generated a **simulated agriculture dataset** for 20 countries (FAO-style).
+- Saved all raw datasets in **CSV and Parquet** formats.
+- Automated the entire ingestion step inside **Docker** to ensure reproducibility.
 
-**Objective:** Automate dataset creation and storage.  
-**Technology:** Python, Docker
+### Output (Module 1)
 
-**Output:** Synthetic datasets (2000–2022)
+data/raw/
+│── climate_data.csv
+│── climate_data.parquet
+│── agriculture_data.csv
+│── agriculture_data.parquet
+└── dataset_info.json
 
-**Datasets Created:**
-**Climate Data:** 1,035 records (temperature, precipitation, CO₂ emissions)  
-**Agriculture Data:** 345 records (crop production, cereal yield, food security metrics)
+## Module 2 — Data Cleaning & Integration (PySpark)
 
-**Countries Covered (15):**  
-USA, India, China, Brazil, Germany, France, Japan, Australia, Canada, Mexico, UK, Italy, Spain, Russia, South Africa
+### What was done
 
-**Time Period:** 2000–2022 (23 years)
+- Loaded raw datasets using **PySpark**.
+- Cleaned and formatted data:
+  - Converted columns to proper numeric types
+  - Trimmed and standardized country fields
+  - Removed duplicates
+- Pivoted climate indicators (long → wide format).
+- Merged agriculture + climate datasets using **country + year**.
+- Filled missing values using **median per country**.
+- Flagged outliers using **IQR (Interquartile Range)**.
+- Saved the processed dataset into **data/processed/**.
 
-### **Module 2: Data Cleaning & Integration** _Completed_
+### Output (Module 2)
 
-**Objective:** Prepare raw data for analysis.  
-**Technology:** Pandas, Docker
-
-**Output:** Cleaned and integrated dataset ready for analysis.
-
-**Cleaning Steps:**
-
-- Removed duplicates and null values
-- Transformed climate data from long → wide format
-- Integrated climate and agriculture datasets
-
-**Final Dataset:** `345 records × 9 columns`
-
-## Technologies Used
-
-- **Python 3.9**
-- **Pandas** — Data manipulation and analysis
-- **Docker** — Containerization and reproducibility
-- **PyArrow** — Parquet file support
+data/processed/
+│── merged_climate_agriculture.csv
+└── merged_climate_agriculture.parquet

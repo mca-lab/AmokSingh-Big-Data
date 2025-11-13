@@ -1,16 +1,29 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+RUN addgroup --system app && adduser --system --ingroup app app
 
 WORKDIR /app
 
-# Copy requirements and install
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Install OS packages (java + certificates)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    openjdk-11-jre-headless \
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-# Copy source code
-COPY src/ ./src/
+COPY requirements.txt /app/requirements.txt
 
-# Create data directories
-RUN mkdir -p data/raw data/processed
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir -r /app/requirements.txt
 
-# Run data collection AND then cleaning
-CMD ["sh", "-c", "python src/fetch_data.py && python src/clean_data.py"]
+COPY . /app
+
+RUN mkdir -p /app/data/raw /app/data/processed \
+    && chown -R app:app /app
+
+USER app
+
+CMD ["bash", "-lc", "python src/fetch_data.py --out /app/data && python src/clean_data.py"]
