@@ -14,7 +14,7 @@ venv/
 
 # Jupyter
 .ipynb_checkpoints/
-*.ipynb
+# *.ipynb
 
 # IDE
 .vscode/
@@ -28,3 +28,5 @@ Thumbs.db
 
 # Docker
 docker-compose.override.yml
+
+spark-env/
