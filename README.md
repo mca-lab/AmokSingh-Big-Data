@@ -43,7 +43,7 @@ AmokSingh-Big-Data/
 │
 ├── src/
 │ ├── fetch_data.py # Data ingestion script
-│ └── clean_data.py # Data cleaning & integration using PySpark
+│ └── clean_data.py # Data cleaning & integration (PySpark)
 │
 ├── notebooks/
 │ └── analysis.ipynb # Data analysis & visualization
