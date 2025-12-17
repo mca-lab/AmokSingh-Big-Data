@@ -33,29 +33,6 @@ The project integrates multiple public datasets related to:
 - Agriculture (crop production, cereal yield, agricultural land)
 - Food security index
 
-## Project Structure
-
-AmokSingh-Big-Data/
-│
-├── data/
-│ ├── raw/ # Ignored (raw datasets)
-│ └── processed/ # Ignored (cleaned datasets)
-│
-├── src/
-│ ├── fetch_data.py # Data ingestion script
-│ └── clean_data.py # Data cleaning & integration (PySpark)
-│
-├── notebooks/
-│ └── analysis.ipynb # Data analysis & visualization
-│
-├── docker/
-│ ├── Dockerfile.fetch # Docker for data ingestion
-│ └── Dockerfile.clean # Docker for data cleaning
-│
-├── requirements.txt
-├── .gitignore
-└── README.md
-
 ## Project Workflow
 
 ### **Module 1: Data Collection & Ingestion**
